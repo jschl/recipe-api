@@ -1,4 +1,4 @@
-from django.urls import include, path
+from django.urls import include, path, re_path
 from rest_framework import routers
 from . import views
 
@@ -9,5 +9,6 @@ router.register(r'recipes', views.RecipeViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    re_path('recipes/search/(?P<ingredient>.+)/$', views.filter_recipe)
 ]
