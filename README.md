@@ -1,4 +1,4 @@
-# annotator
+# recipe-api
 
 Api for storing and requesting recipes.
 
